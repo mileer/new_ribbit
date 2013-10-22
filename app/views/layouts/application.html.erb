@@ -7,8 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<div id="content">
+  <div class="wrapper">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "flash #{name}" %>
+    <% end %>
+    <%= yield %>
+  </div>
+</div>
+<footer>
+  <div class="wrapper">
+    Ribbit - A Twitter Clone
+  </div>
+</footer>
 
 </body>
 </html>
